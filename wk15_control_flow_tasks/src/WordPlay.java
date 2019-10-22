@@ -4,6 +4,7 @@
  * This is the WordPlay class - used to explore if and loop statements
  * 
  */
+import java.util.Random;
 
 public class WordPlay {
 	
@@ -26,17 +27,15 @@ public class WordPlay {
 	
 	//Task 2
 	
-	public char[] backwardsString(String name) {
-		char[] backwards;
-		backwards = new char[name.length()];
-		for(int i = name.length(); i > 0; i--) {
-			for(int j = 0; j > name.length(); j++) {
-				backwards[i] = name.charAt(j);
-			}
-		}
-		return backwards;
+	public String backwardsString(String name) {
+		String flippedword = " "; 
+		  flippedword = name;
+		  StringBuilder temp = new StringBuilder();
+		  temp.append(flippedword);
+		  String flippedName = temp.reverse().toString();
+		  return flippedName;
 	}
-	
+
 	//task 3
 	
 	public String[] addressBook(String[] names, String[] numbers) {
@@ -48,10 +47,32 @@ public class WordPlay {
 		return book;
 	}
 	
-	/*Task 4
-	public ?? rockPaperScissors(??) {
-		??
-	}
-	*/
+	//Task 4
 	
+	public String rockPaperScissors(String userGuess) {
+		
+		String compGuess = "";
+		Random rand = new Random();
+		
+		int compNum = rand.nextInt(3);
+		if (compNum == 1) {
+			compGuess = "rock";
+		} else if (compNum == 2) {
+			compGuess = "paper";
+		} else {
+			compGuess = "scissors";
+		}
+		
+		if (userGuess == "rock" && compGuess == "scissors") {
+			return "USER:rock vs COMP:scissors user wins";
+		} else if (userGuess == "paper" && compGuess == "rock") {
+			return "USER:paper vs COMP:rock user wins";
+		} else if (userGuess == "scissors" && compGuess == "paper") {
+			return "USER:scissors vs COMP:paper user wins";
+		} else if (userGuess.equals(compGuess)) {
+			return "USER: " + userGuess + " vs COMP:" + compGuess + " it is a draw";
+		} else {
+			return "USER: " + userGuess + " vs COMP:" + compGuess + " COMPUTER wins";
+		}
+	}	
 }
