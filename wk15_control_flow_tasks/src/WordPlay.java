@@ -54,7 +54,6 @@ public class WordPlay {
 		
 		String compGuess = "";
 		String result = "";
-		
 		Random rand = new Random();
 		int compNum = rand.nextInt(3);
 		
@@ -65,8 +64,7 @@ public class WordPlay {
 		} else {
 			compGuess = "scissors";
 		}
-		System.out.println("COMP " + compGuess);
-		System.out.println("USER " + userGuess);
+		
 		if (userGuess.equals(compGuess)) {
 			result = "USER:" + userGuess + " vs COMP:" + compGuess + " it is a draw";
 		} else if (userGuess == "rock" && compGuess == "scissors") {
@@ -75,15 +73,10 @@ public class WordPlay {
 			result = "USER:" + userGuess + " vs COMP:" + compGuess + " user wins";
 		} else if (userGuess == "scissors" && compGuess == "paper") {
 			result = "USER:" + userGuess + " vs COMP:" + compGuess + " user wins";
-		} else if (userGuess == "paper" && compGuess == "scissors") {
-			result = "USER:" + userGuess + " vs COMP:" + compGuess + " COMPUTER wins";
-		} else if (userGuess == "rock" && compGuess == "paper") {
-			result = "USER:" + userGuess + " vs COMP:" + compGuess + " COMPUTER wins";
-		} else if (userGuess == "scissors" && compGuess == "rock") {
+		} else {
 			result = "USER:" + userGuess + " vs COMP:" + compGuess + " COMPUTER wins";
 		}
-		System.out.println(result);
+		
 		return result;
+		
 	}
-	
-}
