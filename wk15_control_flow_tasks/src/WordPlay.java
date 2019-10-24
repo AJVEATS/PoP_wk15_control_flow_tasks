@@ -36,6 +36,7 @@ public class WordPlay {
 		  return flippedName;
 	}
 
+
 	//task 3
 	
 	public String[] addressBook(String[] names, String[] numbers) {
@@ -52,9 +53,11 @@ public class WordPlay {
 	public String rockPaperScissors(String userGuess) {
 		
 		String compGuess = "";
-		Random rand = new Random();
+		String result = "";
 		
+		Random rand = new Random();
 		int compNum = rand.nextInt(3);
+		
 		if (compNum == 1) {
 			compGuess = "rock";
 		} else if (compNum == 2) {
@@ -62,17 +65,25 @@ public class WordPlay {
 		} else {
 			compGuess = "scissors";
 		}
-		
-		if (userGuess == "rock" && compGuess == "scissors") {
-			return "USER:rock vs COMP:scissors user wins";
+		System.out.println("COMP " + compGuess);
+		System.out.println("USER " + userGuess);
+		if (userGuess.equals(compGuess)) {
+			result = "USER:" + userGuess + " vs COMP:" + compGuess + " it is a draw";
+		} else if (userGuess == "rock" && compGuess == "scissors") {
+			result = "USER:" + userGuess + " vs COMP:" + compGuess + " user wins";
 		} else if (userGuess == "paper" && compGuess == "rock") {
-			return "USER:paper vs COMP:rock user wins";
+			result = "USER:" + userGuess + " vs COMP:" + compGuess + " user wins";
 		} else if (userGuess == "scissors" && compGuess == "paper") {
-			return "USER:scissors vs COMP:paper user wins";
-		} else if (userGuess.equals(compGuess)) {
-			return "USER: " + userGuess + " vs COMP:" + compGuess + " it is a draw";
-		} else {
-			return "USER: " + userGuess + " vs COMP:" + compGuess + " COMPUTER wins";
+			result = "USER:" + userGuess + " vs COMP:" + compGuess + " user wins";
+		} else if (userGuess == "paper" && compGuess == "scissors") {
+			result = "USER:" + userGuess + " vs COMP:" + compGuess + " COMPUTER wins";
+		} else if (userGuess == "rock" && compGuess == "paper") {
+			result = "USER:" + userGuess + " vs COMP:" + compGuess + " COMPUTER wins";
+		} else if (userGuess == "scissors" && compGuess == "rock") {
+			result = "USER:" + userGuess + " vs COMP:" + compGuess + " COMPUTER wins";
 		}
-	}	
+		System.out.println(result);
+		return result;
+	}
+	
 }
